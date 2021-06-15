@@ -4,6 +4,7 @@ import '../favorites/favorites.dart';
 import './coursespage.dart';
 
 class Home extends StatelessWidget {
+  static const routeName = '/home';
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

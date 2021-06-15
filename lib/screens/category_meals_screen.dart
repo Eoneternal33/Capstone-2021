@@ -46,6 +46,16 @@ var _loadedInitData = false;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+         actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.cottage),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.account_circle, size: 40),
+            )
+          ],
         centerTitle: true,
         title: Text('Nana\'s - ' + categoryTitle),
       ),

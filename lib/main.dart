@@ -1,9 +1,11 @@
-import 'package:capstone/dummy_data.dart';
-import 'package:capstone/models/meal.dart';
-import 'package:capstone/screens/category_meals_screen.dart';
-import 'package:capstone/screens/meal_detail_screen.dart';
 import 'package:flutter/material.dart';
 
+import './homepage/home.dart';
+import './dummy_data.dart';
+import './models/meal.dart';
+import './screens/category_meals_screen.dart';
+import './screens/filters_screen.dart';
+import './screens/meal_detail_screen.dart';
 import './headerPage/headerPage.dart';
 import '../homepage/coursespage.dart';
 
@@ -83,12 +85,14 @@ bool _isMealFavorite(String id) {
             ),
       ),
       // home: new RegisterPage(),
-      initialRoute: '/',
+      initialRoute: '/header',
       routes: {
-        '/': (context) => HeaderPage(),
+        '/header': (context) => HeaderPage(),
+        Home.routeName: (context) => Home(),
         CategoryMealsScreen.routeName: (context) =>
         CategoryMealsScreen(_availableMeals),
          MealDetailScreen.routeName: (ctx) => MealDetailScreen(_toggleFavorite, _isMealFavorite),
+         FilterScreen.routeName: (ctx) => FilterScreen(_filters, _setFilters),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
