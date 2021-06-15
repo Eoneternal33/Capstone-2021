@@ -4,7 +4,6 @@ import '../models/meal.dart';
 // import '../widgets/category_item.dart';
 import '../widgets/meal_item.dart';
 
-
 class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
 
@@ -17,8 +16,8 @@ class CategoryMealsScreen extends StatefulWidget {
 }
 
 class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
-  late String categoryTitle;
-  late List<Meal> displayedMeals;
+  String categoryTitle;
+  List<Meal> displayedMeals;
 var _loadedInitData = false;
 
 @override
@@ -32,8 +31,8 @@ var _loadedInitData = false;
   void didChangeDependencies() {
     if (_loadedInitData == false) {
         final routeArgs =
-        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-    String? categoryTitle = routeArgs['title'];
+        ModalRoute.of(context).settings.arguments as Map<String, String>;
+    categoryTitle = routeArgs['title'];
     final categoryId = routeArgs['id'];
     displayedMeals = widget.availableMeals.where((meal) {
       return meal.categories.contains(categoryId);
@@ -43,18 +42,12 @@ var _loadedInitData = false;
     super.didChangeDependencies();
   }
 
-void _removeMeal(String mealId) {
-setState(() {
-displayedMeals.removeWhere((meal) => meal.id == mealId);
-});
-}
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(categoryTitle),
+        centerTitle: true,
+        title: Text('Nana\'s - ' + categoryTitle),
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {

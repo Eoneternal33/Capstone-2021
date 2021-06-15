@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import './models/category.dart';
 import './models/meal.dart';
 
-const All = const [
+
+const DUMMY_CATEGORIES = const [
   Category(
     id: 'c1',
     title: 'All Recipes',
   ),
-];
-
-const DUMMY_CATEGORIES = const [
-  
+  Category(
+    id: 'c10',
+    title: 'My Recipes',
+  ),
   Category(
     id: 'c2',
     title: 'Quick & Easy',
@@ -230,6 +231,7 @@ const DUMMY_MEALS = const [
       'c1',
       'c6',
       'c9',
+      'c10',
     ],
     title: 'Delicious Orange Mousse',
     author: 'Eli',

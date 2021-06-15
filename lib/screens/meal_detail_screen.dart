@@ -10,12 +10,11 @@ class MealDetailScreen extends StatelessWidget {
 
   MealDetailScreen(this.toggleFavorite, this.isFavorite);
 
-
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Text(
-        'Ingredients',
+        text,
         style: Theme.of(context).textTheme.title,
       ),
     );
@@ -30,7 +29,7 @@ class MealDetailScreen extends StatelessWidget {
       ),
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(10),
-      height: 150,
+      height: 400,
       width: 300,
       child: child,
     );
@@ -38,11 +37,11 @@ class MealDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mealId = ModalRoute.of(context)!.settings.arguments as String;
+    final mealId = ModalRoute.of(context).settings.arguments as String;
     final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == mealId);
     return Scaffold(
       appBar: AppBar(
-        title: Text('${selectedMeal.title} by:${selectedMeal.author}'),
+        title: Text('${selectedMeal.title} by: ${selectedMeal.author}'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -59,13 +58,18 @@ class MealDetailScreen extends StatelessWidget {
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(context).accentColor,
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      vertical: 5,
+                      vertical: 10,
                       horizontal: 10,
                     ),
-                    child: Text(selectedMeal.ingredients[index]),
+                    child: Text(
+                      '\u2022 ' + selectedMeal.ingredients[index],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
                   ),
                 ),
                 itemCount: selectedMeal.ingredients.length,
@@ -95,7 +99,7 @@ class MealDetailScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(
-         isFavorite(mealId) ? Icons.star : Icons.star_border,
+          isFavorite(mealId) ? Icons.star : Icons.star_border,
         ),
         onPressed: () => toggleFavorite(mealId),
       ),
