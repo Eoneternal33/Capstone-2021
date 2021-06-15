@@ -1,34 +1,31 @@
-
 import '../homepage/coursespage.dart';
 import 'package:flutter/material.dart';
 import './headerPage/header.dart';
 import './headerPage/buttons.dart';
 
-
 void main() {
- 
-  
   runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-
   // This widget is the root of your application.
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-
-
-  
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Capstone',
       theme: ThemeData(
         primaryColor: Colors.green[900],
+        textTheme: ThemeData.light().textTheme.copyWith(
+              title: TextStyle(
+                color: Colors.green[900],
+                fontSize: 30,
+              ),
+            ),
       ),
       home: new RegisterPage(),
       onUnknownRoute: (settings) {
@@ -54,12 +51,10 @@ class RegisterPage extends StatelessWidget {
           Header(),
           Buttons(),
           Image(
-                  image: AssetImage('assets/greenBox.png'),
-                ),
+            image: AssetImage('assets/greenBox.png'),
+          ),
         ],
       ),
-    
     );
   }
 }
-
