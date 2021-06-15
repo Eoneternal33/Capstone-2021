@@ -13,13 +13,13 @@ class MealItem extends StatelessWidget {
 
 
   MealItem(
-      {required this.id,
-      required this.title,
-      required this.author,
-      required this.imageUrl,
-      required this.duration,
-      required this.complexity,
-      required this.affordability,
+      {@required this.id,
+      @required this.title,
+      @required this.author,
+      @required this.imageUrl,
+      @required this.duration,
+      @required this.complexity,
+      @required this.affordability,
       
       });
 
@@ -105,7 +105,7 @@ class MealItem extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 20,
+                    bottom: 10,
                     right: 10,
                     child: Container(
                       width: 300,
@@ -113,9 +113,9 @@ class MealItem extends StatelessWidget {
                       padding:
                           EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                       child: Text(
-                        title,
+                        title +' by: '+ author,
                         style: TextStyle(
-                          fontSize: 26,
+                          fontSize: 23,
                           color: Colors.white,
                         ),
                         softWrap: true,

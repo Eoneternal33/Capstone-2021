@@ -65,21 +65,6 @@ class Home extends StatelessWidget {
               padding: const EdgeInsets.only(top: 45.0, left: 10),
               child: TextButton(
                 child: Text(
-                  'My Recipes',
-                  style: TextStyle(
-                    fontSize: 30,
-                  ),
-                ),
-                style: TextButton.styleFrom(
-                  primary: Colors.green[900],
-                ),
-                onPressed: () {},
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 45.0, left: 10),
-              child: TextButton(
-                child: Text(
                   'Courses',
                   style: TextStyle(
                     fontSize: 30,

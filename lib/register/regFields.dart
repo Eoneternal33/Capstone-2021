@@ -10,9 +10,9 @@ class RegInput extends StatefulWidget {
 }
 
 class RegInputState extends State<RegInput> {
-  late String nameInput;
-  late String emailInput;
-  late String passInput;
+   String nameInput;
+   String emailInput;
+   String passInput;
 
   @override
   Widget build(BuildContext context) {

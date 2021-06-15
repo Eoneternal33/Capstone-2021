@@ -10,8 +10,8 @@ class Input extends StatefulWidget {
 }
 
 class InputState extends State<Input> {
-  late String emailInput;
-  late String passInput;
+  String emailInput;
+  String passInput;
 
   @override
   Widget build(BuildContext context) {
