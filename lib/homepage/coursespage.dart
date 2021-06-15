@@ -1,97 +1,55 @@
 import 'package:flutter/material.dart';
 
+import 'package:capstone/widgets/category_item.dart';
+import '../dummy_data.dart';
+
 class Courses extends StatelessWidget {
   // const Courses({Key? key}) : super(key: key);
-
-  @override
+ @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.cottage),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.account_circle, size: 40),
-          )
-        ],
         centerTitle: true,
-        title: Text('Courses'),
+        title: Text('Nana\'s Green Box'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 50.0, left: 10),
-            child: TextButton(
-              child: Text(
-                'Breakfast',
-                style: TextStyle(
-                  fontSize: 30,
+          body: ListView(
+          padding: const EdgeInsets.all(25),
+          children: DUMMY_CATEGORIES
+              .map(
+                (catData) => CategoryItem(
+                  catData.id,
+                  catData.title,
                 ),
-              ),
-              style: TextButton.styleFrom(
-                primary: Colors.green[900],
-              ),
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => (),
-                //   ),
-                // );
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 50.0,top: 50, left: 10),
-            child: TextButton(
-              child: Text(
-                'Lunch',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-              style: TextButton.styleFrom(
-                primary: Colors.green[900],
-              ),
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => (),
-                //   ),
-                // );
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 50.0, left: 10),
-            child: TextButton(
-              child: Text(
-                'Dinner',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-              style: TextButton.styleFrom(
-                primary: Colors.green[900],
-              ),
-              onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => (),
-                //   ),
-                // );
-              },
-            ),
-          ),
-        ],
-      ),
+              )
+              .toList(),
+         
+        ),
     );
   }
 }
+
+
+
+
+
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       itemCount: DUMMY_CATEGORIES.length ,
+//       itemBuilder: (BuildContext context, int index) {
+//         return Container(
+//           height: 50,
+//           child: 
+//           ),
+//         );
+//       });
+//       // itemBuilder: DUMMY_CATEGORIES.map(
+//       //         (catData) => CategoryItem(
+//       //           catData.id,
+//       //           catData.title,
+//       //         ),
+//       //       )
+//     );
+//   }
+// }

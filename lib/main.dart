@@ -1,7 +1,9 @@
 
+import '../homepage/coursespage.dart';
 import 'package:flutter/material.dart';
 import './headerPage/header.dart';
 import './headerPage/buttons.dart';
+
 
 void main() {
  
@@ -29,6 +31,11 @@ class _MyAppState extends State<MyApp> {
         primaryColor: Colors.green[900],
       ),
       home: new RegisterPage(),
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (ctx) => Courses(),
+        );
+      },
     );
   }
 }
@@ -51,6 +58,7 @@ class RegisterPage extends StatelessWidget {
                 ),
         ],
       ),
+    
     );
   }
 }

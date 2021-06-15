@@ -15,7 +15,7 @@ class RegButtons extends StatelessWidget {
                 primary: Colors.green[900],
               ),
               onPressed: () {
-                     Navigator.push(
+                     Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => Home(),
@@ -29,7 +29,7 @@ class RegButtons extends StatelessWidget {
               primary: Colors.green[900],
             ),
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                     builder: (context) => Login(),
