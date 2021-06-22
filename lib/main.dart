@@ -76,10 +76,10 @@ bool _isMealFavorite(String id) {
     return MaterialApp(
       title: 'Flutter Capstone',
       theme: ThemeData(
-        primaryColor: Colors.green[900],
+        primaryColor: Colors.greenAccent[200],
         textTheme: ThemeData.light().textTheme.copyWith(
               title: TextStyle(
-                color: Colors.green[900],
+                color: Colors.green[200],
                 fontSize: 30,
               ),
             ),
