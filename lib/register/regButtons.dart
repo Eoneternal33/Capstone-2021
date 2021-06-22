@@ -1,3 +1,4 @@
+import 'package:capstone/homepage/coursespage.dart';
 import 'package:flutter/material.dart';
 
 import '../loginPage/login.dart';
@@ -18,7 +19,7 @@ class RegButtons extends StatelessWidget {
                      Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Home(),
+                  builder: (context) => Courses(),
                 ),
               );
               },
