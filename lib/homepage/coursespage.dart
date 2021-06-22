@@ -1,10 +1,38 @@
+import 'package:capstone/models/meal.dart';
+import 'package:capstone/screens/category_meals_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:capstone/widgets/category_item.dart';
 import '../dummy_data.dart';
 
-class Courses extends StatelessWidget {
+class Courses extends StatefulWidget {
   // const Courses({Key? key}) : super(key: key);
+  @override
+  _CoursesState createState() => _CoursesState();
+}
+
+class _CoursesState extends State<Courses> with TickerProviderStateMixin {
+  TabController _tabController;
+  int _currentIndex = 0;
+
+  List<Meal> _availableMeals = DUMMY_MEALS;
+
+  get id => null;
+
+  List<Meal> get availableMeals => DUMMY_MEALS;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController =
+        TabController(length: DUMMY_CATEGORIES.length, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,48 +49,30 @@ class Courses extends StatelessWidget {
           ],
         centerTitle: true,
         title: Text('Nana\'s Green Box'),
+       bottom: TabBar(
+          isScrollable: true,
+          controller: _tabController,
+          tabs: DUMMY_CATEGORIES
+              .map(
+                (catData) => Tab(text: catData.title)
+                //  CategoryItem(
+                //   catData.id,
+                //   catData.title,
+                // ),
+              )
+              .toList(),
+        ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            child: Expanded(
-              child: ListView(
-                padding: const EdgeInsets.only(top:25, bottom: 25),
-                children: DUMMY_CATEGORIES
-                    .map(
-                      (catData) => CategoryItem(
-                        catData.id,
-                        catData.title,
-                      ),
-                    )
-                    .toList(),
-              ),
-            ),
-          ),
-        ],
+      body: TabBarView(
+        controller: _tabController,
+        children: DUMMY_CATEGORIES.map((catData) {
+          List<Meal> displayedMeals = availableMeals.where((meal) {
+            return meal.categories.contains(catData.id);
+          }).toList();
+          return CategoryMealsScreen(displayedMeals);
+        }).toList(),
+        
       ),
     );
   }
 }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.builder(
-//       itemCount: DUMMY_CATEGORIES.length ,
-//       itemBuilder: (BuildContext context, int index) {
-//         return Container(
-//           height: 50,
-//           child:
-//           ),
-//         );
-//       });
-//       // itemBuilder: DUMMY_CATEGORIES.map(
-//       //         (catData) => CategoryItem(
-//       //           catData.id,
-//       //           catData.title,
-//       //         ),
-//       //       )
-//     );
-//   }
-// }

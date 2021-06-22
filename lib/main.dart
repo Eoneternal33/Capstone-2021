@@ -88,9 +88,8 @@ bool _isMealFavorite(String id) {
       initialRoute: '/header',
       routes: {
         '/header': (context) => HeaderPage(),
-        Home.routeName: (context) => Home(),
-        CategoryMealsScreen.routeName: (context) =>
-        CategoryMealsScreen(_availableMeals),
+        // CategoryMealsScreen.routeName: (context) =>
+        // CategoryMealsScreen(_availableMeals),
          MealDetailScreen.routeName: (ctx) => MealDetailScreen(_toggleFavorite, _isMealFavorite),
          FilterScreen.routeName: (ctx) => FilterScreen(_filters, _setFilters),
       },

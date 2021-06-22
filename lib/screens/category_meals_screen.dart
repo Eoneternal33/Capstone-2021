@@ -1,64 +1,22 @@
 import 'package:flutter/material.dart';
 
+
 import '../models/meal.dart';
 // import '../widgets/category_item.dart';
 import '../widgets/meal_item.dart';
 
-class CategoryMealsScreen extends StatefulWidget {
-  static const routeName = '/category-meals';
+class CategoryMealsScreen extends StatelessWidget {
+  // static const routeName = '/category-meals';
 
-  final List<Meal> availableMeals;
-
-  CategoryMealsScreen(this.availableMeals);
-
-  @override
-  _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
-}
-
-class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
-  String categoryTitle;
-  List<Meal> displayedMeals;
-var _loadedInitData = false;
-
-@override
-  void initState() {
+  final List<Meal> displayedMeals;
   
-    super.initState();
-  }
 
-
-  @override
-  void didChangeDependencies() {
-    if (_loadedInitData == false) {
-        final routeArgs =
-        ModalRoute.of(context).settings.arguments as Map<String, String>;
-    categoryTitle = routeArgs['title'];
-    final categoryId = routeArgs['id'];
-    displayedMeals = widget.availableMeals.where((meal) {
-      return meal.categories.contains(categoryId);
-    }).toList();
-    _loadedInitData = true;
-    }
-    super.didChangeDependencies();
-  }
+  CategoryMealsScreen(this.displayedMeals);
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      appBar: AppBar(
-         actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.cottage),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.account_circle, size: 40),
-            )
-          ],
-        centerTitle: true,
-        title: Text('Nana\'s - ' + categoryTitle),
-      ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {
           return MealItem(
