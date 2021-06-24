@@ -15,7 +15,9 @@ class MealDetailScreen extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.title,
+        style: TextStyle(fontWeight: FontWeight.bold,
+        fontSize: 35,
+        ),
       ),
     );
   }
@@ -52,6 +54,28 @@ class MealDetailScreen extends StatelessWidget {
               child: Image.network(
                 selectedMeal.imageUrl,
                 fit: BoxFit.cover,
+              ),
+            ),
+            // selectedMeal.descriptions[index]
+            buildSectionTitle(context, 'Description'),
+            buildContainer(
+              ListView.builder(
+                itemCount: selectedMeal.descriptions.length,
+                itemBuilder: (ctx, index) => Card(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 10,
+                    ),
+                    child: Text(
+                      selectedMeal.descriptions[index],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
             buildSectionTitle(context, 'Ingredients'),

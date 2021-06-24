@@ -35,6 +35,7 @@ class InputState extends State<Input> {
               labelText: 'Password',
               border: OutlineInputBorder(),
             ),
+            obscureText: true,
             onChanged: (val) {
               passInput = val;
             },
