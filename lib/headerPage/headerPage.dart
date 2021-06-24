@@ -17,9 +17,10 @@ class HeaderPage extends StatelessWidget {
             decoration: new BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  'assets/good_box.jpg',
+                  'assets/cool-image.jpg',
                 ),
                 fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.4), BlendMode.dstATop)
               ),
             ),
           ),
