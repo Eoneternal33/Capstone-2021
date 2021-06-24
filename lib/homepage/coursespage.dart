@@ -1,5 +1,6 @@
 import 'package:capstone/models/meal.dart';
 import 'package:capstone/screens/category_meals_screen.dart';
+import 'package:capstone/screens/logout.dart';
 import 'package:capstone/widgets/mainDrawer.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,6 @@ import 'package:capstone/widgets/category_item.dart';
 import '../dummy_data.dart';
 
 class Courses extends StatefulWidget {
-  
   // const Courses({Key? key}) : super(key: key);
   @override
   _CoursesState createState() => _CoursesState();
@@ -43,13 +43,25 @@ class _CoursesState extends State<Courses> with TickerProviderStateMixin {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LogOutScreen(),
+                ),
+              );
+            },
             icon: Icon(Icons.account_circle, size: 40),
           )
         ],
         centerTitle: true,
-        title: Text('Nana\'s Green Box',
-        style: TextStyle(fontFamily: 'Galada', fontSize: 26,),),
+        title: Text(
+          'Nana\'s Green Box',
+          style: TextStyle(
+            fontFamily: 'Galada',
+            fontSize: 26,
+          ),
+        ),
         bottom: TabBar(
           labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           isScrollable: true,
