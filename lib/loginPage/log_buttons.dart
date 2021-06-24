@@ -11,9 +11,12 @@ class LogButtons extends StatelessWidget {
       child: Column(
         children: [
           ElevatedButton(
-            child: Text('Login'),
+            child: Text('Login',
+            style: TextStyle(
+              color: Colors.black,
+            ),),
             style: ElevatedButton.styleFrom(
-              primary: Colors.green[900],
+              primary: Colors.greenAccent[200],
             ),
             onPressed: () {
               Navigator.pushReplacement(
@@ -27,7 +30,7 @@ class LogButtons extends StatelessWidget {
           TextButton(
             child: Text('Not a member? Register here!'),
             style: TextButton.styleFrom(
-              primary: Colors.green[900],
+              primary: Colors.green,
             ),
             onPressed: () {
               Navigator.pushReplacement(

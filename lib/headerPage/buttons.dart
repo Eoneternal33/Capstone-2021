@@ -21,7 +21,7 @@ class Buttons extends StatelessWidget {
                   borderRadius: BorderRadius.circular(80),
                 ),
                 textStyle: TextStyle(fontSize: 20),
-                primary: Colors.green,
+                primary: Colors.green[400],
               ),
               onPressed: () {
                 Navigator.pushReplacement(

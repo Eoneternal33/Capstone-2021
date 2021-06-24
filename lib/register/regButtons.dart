@@ -11,9 +11,12 @@ class RegButtons extends StatelessWidget {
       child: Column(
         children: [
           ElevatedButton(
-              child: Text('Register'),
+              child: Text('Register',
+              style: TextStyle(
+                color: Colors.black,
+              ),),
               style: ElevatedButton.styleFrom(
-                primary: Colors.green[900],
+                primary: Colors.greenAccent[200],
               ),
               onPressed: () {
                      Navigator.pushReplacement(

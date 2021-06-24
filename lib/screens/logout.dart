@@ -23,9 +23,10 @@ class LogOutScreen extends StatelessWidget {
             decoration: new BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  'assets/greenBox.png',
+                  'assets/good_box.jpg',
                 ),
                 fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.4), BlendMode.dstATop)
               ),
             ),
           ),
@@ -34,7 +35,7 @@ class LogOutScreen extends StatelessWidget {
             child: Text(
               'Hello! Before you go, if you have a recipe you\'d like added, message Eli at Eburgess.nexstep@gmail.com',
               style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontStyle: FontStyle.italic,
                   fontSize: 25,
                   fontWeight: FontWeight.bold),
@@ -45,14 +46,20 @@ class LogOutScreen extends StatelessWidget {
             margin: EdgeInsets.only(left:35, top: 400),
             child: ElevatedButton(
               autofocus: true,
-              child: Text('Logout'),
+              child: Text('Logout',
+              style: TextStyle(
+                color: Colors.black
+              ) ,
+              ),
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(320, 46),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(80),
                 ),
-                textStyle: TextStyle(fontSize: 20),
-                primary: Colors.green,
+                textStyle: TextStyle(
+                  fontSize: 20,
+                ),
+                primary: Colors.greenAccent[200],
               ),
               onPressed: () {
                 Navigator.pushReplacement(
