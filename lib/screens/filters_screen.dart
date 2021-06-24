@@ -1,5 +1,6 @@
+import 'package:capstone/widgets/mainDrawer.dart';
 import 'package:flutter/material.dart';
-import '../widgets/main_drawer.dart';
+
 
 class FilterScreen extends StatefulWidget {
   static const routeName = '/filters';

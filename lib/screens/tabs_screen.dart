@@ -1,9 +1,10 @@
+import 'package:capstone/widgets/mainDrawer.dart';
 import 'package:flutter/material.dart';
 
 import '../homepage/coursespage.dart';
 import '../screens/favorites.dart';
 import '../models/meal.dart';
-import '../widgets/main_drawer.dart';
+
 
 
 class TabsScreen extends StatefulWidget {

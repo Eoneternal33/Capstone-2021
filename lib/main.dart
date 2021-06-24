@@ -1,3 +1,4 @@
+import 'package:capstone/screens/favorites.dart';
 import 'package:flutter/material.dart';
 
 import './homepage/home.dart';
@@ -28,6 +29,8 @@ Map<String, bool> _filters = {
   };
   List<Meal> _availableMeals = DUMMY_MEALS;
   List<Meal> _favoriteMeals = [];
+
+  get builder => null;
 
   void _setFilters(Map<String, bool> filterData) {
     setState(() {
@@ -88,8 +91,8 @@ bool _isMealFavorite(String id) {
       initialRoute: '/header',
       routes: {
         '/header': (context) => HeaderPage(),
-        // CategoryMealsScreen.routeName: (context) =>
-        // CategoryMealsScreen(_availableMeals),
+        builder: (ctx) => Courses(),
+        FavoritesScreen.routeName: (ctx) => FavoritesScreen(_favoriteMeals),
          MealDetailScreen.routeName: (ctx) => MealDetailScreen(_toggleFavorite, _isMealFavorite),
          FilterScreen.routeName: (ctx) => FilterScreen(_filters, _setFilters),
       },
